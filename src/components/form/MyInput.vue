@@ -5,8 +5,8 @@
       :name="inputName"
       :id="inputName"
       :required="required"
-      v-model="content"
       @input="handleInput"
+      v-model="inputContent"
     />
   </div>
 </template>
@@ -25,16 +25,21 @@ export default {
     inputName: {
       type: String,
     },
-    inputValue: String,
+    value: String,
   },
   data() {
     return {
-      content: this.inputValue,
-    };
+      inputContent: this.value
+    }
   },
   methods: {
     handleInput() {
-      this.$emit("input", this.content)
+      this.$emit('input', this.inputContent)
+    }
+  },
+  watch: {
+    value() {
+      this.inputContent = this.value
     }
   }
 };

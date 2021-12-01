@@ -33,6 +33,7 @@ export default {
   methods: {
     addNew(item) {
       this.allProducts.push(item)
+      localStorage.setItem("products", JSON.stringify(this.allProducts));
     }
   }
 }
@@ -44,6 +45,7 @@ body {
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
   background-color: rgba(255, 254, 251, 0.8);
+  color: #3F3F3F;
 }
 .app {
   padding: 32px;
@@ -62,7 +64,7 @@ body {
     }
     &__block {
       position: sticky;
-      top: 0;
+      top: 16px;
     }
   }
   &-sort {

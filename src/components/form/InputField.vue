@@ -1,13 +1,19 @@
 <template>
   <div class="field">
-    <my-label :title="title" :inputName="inputName" :required="required"/>
-    <my-input :inputName="inputName" :required="required" :inputType="inputType" v-model="inputValue"/>
+    <my-label :title="title" :inputName="inputName" :required="required" />
+    <my-input
+      :inputName="inputName"
+      :required="required"
+      :inputType="inputType"
+      v-model="inputValue"
+      @input="handleInput"
+    />
   </div>
 </template>
 
 <script>
-import MyLabel from "./MyLabel.vue"
-import MyInput from "./MyInput.vue"
+import MyLabel from "./MyLabel.vue";
+import MyInput from "./MyInput.vue";
 export default {
   components: {
     MyLabel,
@@ -24,27 +30,31 @@ export default {
     },
     inputType: {
       type: String,
-      default: "text"
+      default: "text",
     },
     inputName: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
+    value: String,
   },
   data() {
     return {
-      inputValue: "",
-    }
+      inputValue: this.value,
+    };
   },
   watch: {
-    inputValue() {
+    value() {
+      this.inputValue = this.value
+    }
+  },
+  methods: {
+    handleInput() {
       this.$emit('input', this.inputValue)
     }
   }
-
-}
+};
 </script>
 
 <style>
-
 </style>

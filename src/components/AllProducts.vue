@@ -1,6 +1,6 @@
 <template>
   <div class="products">
-    <product v-for="(product, i) in products" :key="`${product.name}-${i}`" />
+    <product v-for="(product, i) in products" :key="`${product.name}-${i}`" :product="product"/>
   </div>
 </template>
 
@@ -19,6 +19,10 @@ export default {
 };
 </script>
 
-<style
-Product>
+<style lang="scss" scoped>
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 16px;
+}
 </style>
