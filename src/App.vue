@@ -1,28 +1,77 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="app">
+    <div class="app-form">
+      <h2 class="app-form__title">Добавление товара</h2>
+      <NewProduct class="app-form__block" @createProduct="addNew"/>
+    </div>
+    <div class="app-sort">
+      <MySort />
+    </div>
+    <div class="app-products">
+      <AllProducts :products="allProducts"/>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NewProduct from './components/form/NewProduct.vue';
+import MySort from './components/MySort.vue';
+import AllProducts from './components/AllProducts.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    NewProduct,
+    MySort, 
+    AllProducts,
+  },
+  data() {
+    return {
+      allProducts: [],
+    }
+  },
+  methods: {
+    addNew(item) {
+      this.allProducts.push(item)
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+body {
+  margin: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: rgba(255, 254, 251, 0.8);
+}
+.app {
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 330px 1fr;
+  grid-gap: 16px;
+
+  &-form {
+    grid-row: 1/3;
+    position: relative;
+    &__title {
+      margin: 0;
+      font-weight: 600;
+      margin-bottom: 16px;
+      font-size: 28px;
+    }
+    &__block {
+      position: sticky;
+      top: 0;
+    }
+  }
+  &-sort {
+    display: flex;
+    justify-content: flex-end;
+  }
+  &-products {
+    grid-column: 2;
+    height: 100vh;
+  }
 }
 </style>
