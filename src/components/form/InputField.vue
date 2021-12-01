@@ -1,13 +1,18 @@
 <template>
   <div class="field">
-    <my-label :title="title" :inputName="inputName" :required="required" />
-    <my-input
-      :inputName="inputName"
-      :required="required"
-      :inputType="inputType"
-      v-model="inputValue"
-      @input="handleInput"
-    />
+    <div class="field-label">
+      <my-label :title="title" :inputName="inputName" :required="required" />
+    </div>
+    <div class="field-input">
+      <my-input
+        :inputName="inputName"
+        :required="required"
+        :inputType="inputType"
+        v-model="inputValue"
+        @input="handleInput"
+        :placeholder="placeholder"
+      />
+    </div>
   </div>
 </template>
 
@@ -36,6 +41,10 @@ export default {
       type: String,
       required: true,
     },
+    placeholder: {
+      type: String,
+      default: "Заполните поле"
+    },
     value: String,
   },
   data() {
@@ -56,5 +65,10 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.field {
+  &-label {
+    margin-bottom: 4px;
+  }
+}
 </style>

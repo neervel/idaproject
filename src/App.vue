@@ -41,6 +41,9 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;

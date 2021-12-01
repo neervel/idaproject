@@ -7,6 +7,8 @@
       :required="required"
       @input="handleInput"
       v-model="inputContent"
+      autocomplete="false"
+      :placeholder="placeholder"
     />
   </div>
 </template>
@@ -23,6 +25,9 @@ export default {
       default: false,
     },
     inputName: {
+      type: String,
+    },
+    placeholder: {
       type: String,
     },
     value: String,
@@ -46,4 +51,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+input {
+  background: transparent;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  border: none;
+  transition: box-shadow linear .2s;
+  padding: 10px 16px;
+  width: 100%;
+  font-size: 12px;
+  &:focus {
+    outline: none;
+    box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.2);
+  }
+  &::placeholder {
+    color: #B4B4B4;
+  }
+}
 </style>

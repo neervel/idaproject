@@ -1,7 +1,7 @@
 <template>
   <div class="label">
     <label :for="inputName">{{ title }}</label>
-    <div class="label-req" v-if="required">req</div>
+    <div class="label-req" v-if="required"></div>
   </div>
 </template>
 
@@ -25,5 +25,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.label {
+  position: relative;
+  display: inline;
+  & label {
+    font-size: 10px;
+  }
+  &-req {
+    position: absolute;
+    top: 4px;
+    right: -4px;
+    height: 4px;
+    width: 4px;
+    border-radius: 2px;
+    background-color: #FF8484;
+  }
+}
 </style>
