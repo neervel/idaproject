@@ -1,6 +1,7 @@
 <template>
   <div id="app" class="app">
-    <div class="app-form">
+    <div class="app-loader" v-if="loading"></div>
+    <div v-else class="app-form">
       <h2 class="app-form__title">Добавление товара</h2>
       <NewProduct class="app-form__block" @createProduct="addNew" />
     </div>
@@ -29,6 +30,7 @@ export default {
   data() {
     return {
       allProducts: [],
+      loading: true,
     };
   },
   methods: {
@@ -56,6 +58,7 @@ export default {
     } else {
       console.log("localstorage is empty");
     }
+    this.loading = false
   },
   watch: {
     allProducts() {

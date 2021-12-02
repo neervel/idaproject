@@ -66,6 +66,9 @@ export default {
   border-radius: 4px;
   position: relative;
   transition: .2s;
+  &:hover {
+    cursor: pointer;
+  }
   &:hover > .delete {
     opacity: 1;
   }
