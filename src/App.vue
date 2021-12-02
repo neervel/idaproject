@@ -5,7 +5,7 @@
       <NewProduct class="app-form__block" @createProduct="addNew" />
     </div>
     <div class="app-sort">
-      <MySort />
+      <MySort @selectSort="sortHandler"/>
     </div>
     <div class="app-products">
       <AllProducts :products="allProducts" @deleteProduct="deleteProduct" />
@@ -37,10 +37,12 @@ export default {
     deleteProduct(id) {
       this.allProducts = this.allProducts.filter((item) => item._id !== id);
     },
+    sortHandler(sort) {
+      console.log(sort)
+    }
   },
   mounted() {
-    if (localStorage.getItem("products").length > 1) {
-      console.log(localStorage.getItem("products"));
+    if (JSON.parse(localStorage.getItem("products")).length > 1) {
       this.allProducts = [...JSON.parse(localStorage.getItem("products"))];
     } else {
       console.log("localstorage is empty");

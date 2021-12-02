@@ -32,7 +32,7 @@
       <p v-if="product.description" class="product__description">
         {{ product.description }}
       </p>
-      <span class="product__price">{{ product.price }} руб.</span>
+      <span class="product__price">{{ product.price | priceSpace}} руб.</span>
     </div>
   </div>
 </template>
@@ -48,6 +48,11 @@ export default {
   methods: {
     deleteProduct(id) {
       this.$emit('deleteProduct', id)
+    }
+  },
+  filters: {
+    priceSpace(price) {
+      return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
     }
   }
 };

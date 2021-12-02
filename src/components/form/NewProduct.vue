@@ -29,10 +29,10 @@
         title="Цена товара"
         :required="true"
         inputName="price"
-        inputType="number"
         placeholder="Введите цену"
         v-model="item.price"
         class="create-item last"
+        inputType="price"
       />
       <button class="create-submit" :disabled="!isValid">Добавить товар</button>
     </form>

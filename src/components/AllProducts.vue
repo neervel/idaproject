@@ -29,7 +29,7 @@ export default {
 <style lang="scss" scoped>
 .products {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 33%);
   grid-gap: 16px;
 }
 .list-complete-item {
@@ -46,12 +46,12 @@ export default {
 }
 @media screen and (max-width: 1080px) {
   .products {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 50%);
   }
 }
 @media screen and (max-width: 768px) {
   .products {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 100%;
   }
 }
 </style>

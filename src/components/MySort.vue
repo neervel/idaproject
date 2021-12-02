@@ -1,15 +1,26 @@
 <template>
-  <select class="sort">
+  <select class="sort" value="" v-model="sortOrder">
     <option value="">По умолчанию</option>
     <option value="min">Сначала дешевле</option>
     <option value="max">Сначала дороже</option>
-    <option value="name=asc">По алфавиту (А-Я)</option>
+    <option value="name-asc">По алфавиту (А-Я)</option>
     <option value="name-desc">По алфавиту (Я-А)</option>
   </select>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      sortOrder: ""
+    }
+  },
+  watch: {
+    sortOrder() {
+      this.$emit('selectSort', this.sortOrder)
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -21,6 +32,7 @@ export default {};
   border: none;
   font-size: 12px;
   color: #3F3F3F;
+  cursor: pointer;
   &:focus {
     outline: none;
   }

@@ -1,6 +1,19 @@
 <template>
   <div class="input">
+    <money
+      v-if="isNumber"
+      :type="inputType"
+      :name="inputName"
+      :id="inputName"
+      :required="required"
+      @input="handleInput"
+      v-model="inputContent"
+      autocomplete="false"
+      :placeholder="placeholder"
+      v-bind="money"
+    />
     <input
+      v-else
       :type="inputType"
       :name="inputName"
       :id="inputName"
@@ -10,11 +23,16 @@
       autocomplete="false"
       :placeholder="placeholder"
     />
+    
   </div>
 </template>
 
 <script>
+import {Money} from 'v-money';
 export default {
+  components: {
+    Money,
+  },
   props: {
     inputType: {
       type: String,
@@ -34,18 +52,28 @@ export default {
   },
   data() {
     return {
-      inputContent: this.value
+      inputContent: this.value,
+      money: {
+        thousands: ' ',
+        decimal: '',
+        precision: 0,
+      }
     }
   },
   methods: {
     handleInput() {
-      this.$emit('input', this.inputContent)
+      this.$emit('input', this.inputContent.toString())
+    }
+  },
+  computed: {
+    isNumber() {
+      return this.inputType === "price"
     }
   },
   watch: {
     value() {
       this.inputContent = this.value
-    }
+    },
   }
 };
 </script>
