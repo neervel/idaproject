@@ -17,6 +17,7 @@
 import NewProduct from "./components/form/NewProduct.vue";
 import MySort from "./components/MySort.vue";
 import AllProducts from "./components/AllProducts.vue";
+import _ from "lodash";
 
 export default {
   name: "App",
@@ -38,7 +39,15 @@ export default {
       this.allProducts = this.allProducts.filter((item) => item._id !== id);
     },
     sortHandler(sort) {
-      console.log(sort)
+      if (sort === "min") {
+        this.allProducts = _.orderBy(this.allProducts, ['price'], ['asc'])
+      } else if (sort === "max") {
+        this.allProducts = _.orderBy(this.allProducts, ['price'], ['desc'])
+      } else if (sort === "name-asc") {
+        this.allProducts = _.orderBy(this.allProducts, ['name'], ['asc'])
+      } else if (sort === "name-desc") {
+        this.allProducts = _.orderBy(this.allProducts, ['name'], ['desc'])
+      } 
     }
   },
   mounted() {
