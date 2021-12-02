@@ -1,14 +1,14 @@
 <template>
   <div id="app" class="app">
-    <div class="app-loader" v-if="loading">Loading...</div>
-    <div v-else class="app-form">
+    <div class="app-form">
       <h2 class="app-form__title">Добавление товара</h2>
       <NewProduct class="app-form__block" @createProduct="addNew" />
     </div>
     <div class="app-sort">
       <MySort @selectSort="sortHandler" />
     </div>
-    <div class="app-products">
+    <div class="app-loader" v-if="loading">Loading...</div>
+    <div class="app-products" v-else >
       <AllProducts :products="allProducts" @deleteProduct="deleteProduct" />
     </div>
   </div>
@@ -53,7 +53,7 @@ export default {
     },
   },
   mounted() {
-    if (JSON.parse(localStorage.getItem("products")).length > 1) {
+    if (JSON.parse(localStorage.getItem("products")).length > 1 && localStorage.getItem("products")) {
       this.allProducts = [...JSON.parse(localStorage.getItem("products"))];
     } else {
       console.log("localstorage is empty");
