@@ -43,7 +43,7 @@ export default {
     },
     placeholder: {
       type: String,
-      default: "Заполните поле"
+      default: "Заполните поле",
     },
     value: String,
   },
@@ -54,14 +54,14 @@ export default {
   },
   watch: {
     value() {
-      this.inputValue = this.value
-    }
+      this.inputValue = this.value;
+    },
   },
   methods: {
     handleInput() {
-      this.$emit('input', this.inputValue)
-    }
-  }
+      this.$emit("input", this.inputValue);
+    },
+  },
 };
 </script>
 

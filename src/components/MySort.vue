@@ -12,14 +12,14 @@
 export default {
   data() {
     return {
-      sortOrder: ""
-    }
+      sortOrder: "",
+    };
   },
   watch: {
     sortOrder() {
-      this.$emit('selectSort', this.sortOrder)
-    }
-  }
+      this.$emit("selectSort", this.sortOrder);
+    },
+  },
 };
 </script>
 
@@ -31,7 +31,7 @@ export default {
   padding: 10px 16px;
   border: none;
   font-size: 12px;
-  color: #3F3F3F;
+  color: #3f3f3f;
   cursor: pointer;
   &:focus {
     outline: none;

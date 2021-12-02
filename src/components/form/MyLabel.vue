@@ -19,9 +19,9 @@ export default {
     required: {
       type: Boolean,
       default: false,
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -38,7 +38,7 @@ export default {
     height: 4px;
     width: 4px;
     border-radius: 2px;
-    background-color: #FF8484;
+    background-color: #ff8484;
   }
 }
 </style>

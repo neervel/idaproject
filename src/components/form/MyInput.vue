@@ -23,12 +23,11 @@
       autocomplete="false"
       :placeholder="placeholder"
     />
-    
   </div>
 </template>
 
 <script>
-import {Money} from 'v-money';
+import { Money } from "v-money";
 export default {
   components: {
     Money,
@@ -54,27 +53,27 @@ export default {
     return {
       inputContent: this.value,
       money: {
-        thousands: ' ',
-        decimal: '',
+        thousands: " ",
+        decimal: "",
         precision: 0,
-      }
-    }
+      },
+    };
   },
   methods: {
     handleInput() {
-      this.$emit('input', this.inputContent.toString())
-    }
+      this.$emit("input", this.inputContent.toString());
+    },
   },
   computed: {
     isNumber() {
-      return this.inputType === "price"
-    }
+      return this.inputType === "price";
+    },
   },
   watch: {
     value() {
-      this.inputContent = this.value
+      this.inputContent = this.value;
     },
-  }
+  },
 };
 </script>
 
@@ -84,7 +83,7 @@ input {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   border: none;
-  transition: box-shadow linear .2s;
+  transition: box-shadow linear 0.2s;
   padding: 10px 16px;
   width: 100%;
   font-size: 12px;
@@ -93,7 +92,7 @@ input {
     box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.2);
   }
   &::placeholder {
-    color: #B4B4B4;
+    color: #b4b4b4;
   }
 }
 </style>

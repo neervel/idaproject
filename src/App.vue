@@ -6,7 +6,7 @@
       <NewProduct class="app-form__block" @createProduct="addNew" />
     </div>
     <div class="app-sort">
-      <MySort @selectSort="sortHandler"/>
+      <MySort @selectSort="sortHandler" />
     </div>
     <div class="app-products">
       <AllProducts :products="allProducts" @deleteProduct="deleteProduct" />
@@ -42,15 +42,15 @@ export default {
     },
     sortHandler(sort) {
       if (sort === "min") {
-        this.allProducts = _.orderBy(this.allProducts, ['price'], ['asc'])
+        this.allProducts = _.orderBy(this.allProducts, ["price"], ["asc"]);
       } else if (sort === "max") {
-        this.allProducts = _.orderBy(this.allProducts, ['price'], ['desc'])
+        this.allProducts = _.orderBy(this.allProducts, ["price"], ["desc"]);
       } else if (sort === "name-asc") {
-        this.allProducts = _.orderBy(this.allProducts, ['name'], ['asc'])
+        this.allProducts = _.orderBy(this.allProducts, ["name"], ["asc"]);
       } else if (sort === "name-desc") {
-        this.allProducts = _.orderBy(this.allProducts, ['name'], ['desc'])
-      } 
-    }
+        this.allProducts = _.orderBy(this.allProducts, ["name"], ["desc"]);
+      }
+    },
   },
   mounted() {
     if (JSON.parse(localStorage.getItem("products")).length > 1) {
@@ -58,7 +58,7 @@ export default {
     } else {
       console.log("localstorage is empty");
     }
-    this.loading = false
+    this.loading = false;
   },
   watch: {
     allProducts() {

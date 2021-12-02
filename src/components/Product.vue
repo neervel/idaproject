@@ -26,13 +26,16 @@
         />
       </svg>
     </button>
-    <div class="product__img" :style="{'backgroundImage': `url(${product.link})`}"></div>
+    <div
+      class="product__img"
+      :style="{ backgroundImage: `url(${product.link})` }"
+    ></div>
     <div class="product-info">
       <h3 class="product__name">{{ product.name }}</h3>
       <p v-if="product.description" class="product__description">
         {{ product.description }}
       </p>
-      <span class="product__price">{{ product.price | priceSpace}} руб.</span>
+      <span class="product__price">{{ product.price | priceSpace }} руб.</span>
     </div>
   </div>
 </template>
@@ -47,14 +50,14 @@ export default {
   },
   methods: {
     deleteProduct(id) {
-      this.$emit('deleteProduct', id)
-    }
+      this.$emit("deleteProduct", id);
+    },
   },
   filters: {
     priceSpace(price) {
-      return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
-    }
-  }
+      return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    },
+  },
 };
 </script>
 
@@ -65,7 +68,7 @@ export default {
     0px 6px 10px rgba(0, 0, 0, 0.02);
   border-radius: 4px;
   position: relative;
-  transition: .2s;
+  transition: 0.2s;
   &:hover {
     cursor: pointer;
   }
@@ -85,14 +88,14 @@ export default {
     top: -8px;
     right: -8px;
     opacity: 0;
-    transition: opacity .2s;
+    transition: opacity 0.2s;
   }
   &__img {
     height: 200px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    border-radius: 4px 4px 0 0 ;
+    border-radius: 4px 4px 0 0;
   }
   &-info {
     padding: 16px;

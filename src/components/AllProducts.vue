@@ -1,7 +1,12 @@
 <template>
   <div class="products-block">
     <transition-group name="list-complete" tag="div" class="products">
-      <product v-for="product in products" :key="product._id" :product="product" @deleteProduct="deleteProduct"/>
+      <product
+        v-for="product in products"
+        :key="product._id"
+        :product="product"
+        @deleteProduct="deleteProduct"
+      />
     </transition-group>
   </div>
 </template>
@@ -12,7 +17,7 @@ export default {
   components: {
     Product,
   },
-  props: {  
+  props: {
     products: {
       type: Array,
       default: () => [],
@@ -20,9 +25,9 @@ export default {
   },
   methods: {
     deleteProduct(id) {
-      this.$emit('deleteProduct', id)
-    }
-  }
+      this.$emit("deleteProduct", id);
+    },
+  },
 };
 </script>
 
@@ -37,7 +42,8 @@ export default {
   display: inline-block;
   margin-left: 10px;
 }
-.list-complete-enter, .list-complete-leave-to {
+.list-complete-enter,
+.list-complete-leave-to {
   opacity: 0;
   transform: translateX(-30px);
 }
