@@ -7,8 +7,7 @@
     <div class="app-sort">
       <MySort @selectSort="sortHandler" />
     </div>
-    <div class="app-loader" v-if="loading">Loading...</div>
-    <div class="app-products" v-else >
+    <div class="app-products">
       <AllProducts :products="allProducts" @deleteProduct="deleteProduct" />
     </div>
   </div>
@@ -53,7 +52,7 @@ export default {
     },
   },
   mounted() {
-    if (JSON.parse(localStorage.getItem("products")).length > 1 && localStorage.getItem("products")) {
+    if (localStorage.getItem("products") !== null) {
       this.allProducts = [...JSON.parse(localStorage.getItem("products"))];
     } else {
       console.log("localstorage is empty");
