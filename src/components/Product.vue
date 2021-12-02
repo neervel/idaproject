@@ -105,4 +105,11 @@ export default {
     font-weight: 600;
   }
 }
+@media screen and (max-width: 1080px) {
+  .product {
+    &__img {
+      height: 150px;
+    }
+  }
+}
 </style>

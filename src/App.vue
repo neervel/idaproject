@@ -8,7 +8,7 @@
       <MySort />
     </div>
     <div class="app-products">
-      <AllProducts :products="allProducts" @deleteProduct="deleteProduct"/>
+      <AllProducts :products="allProducts" @deleteProduct="deleteProduct" />
     </div>
   </div>
 </template>
@@ -35,17 +35,17 @@ export default {
       this.allProducts.push(item);
     },
     deleteProduct(id) {
-      this.allProducts = this.allProducts.filter(item => item._id !== id)
-    }
+      this.allProducts = this.allProducts.filter((item) => item._id !== id);
+    },
   },
   mounted() {
     if (localStorage.getItem("products").length > 1) {
       console.log(localStorage.getItem("products"));
-      this.allProducts = [...JSON.parse(localStorage.getItem("products"))]
+      this.allProducts = [...JSON.parse(localStorage.getItem("products"))];
     } else {
-      console.log('localstorage is empty')
+      console.log("localstorage is empty");
     }
-  }, 
+  },
   watch: {
     allProducts() {
       localStorage.setItem("products", JSON.stringify(this.allProducts));
@@ -92,6 +92,22 @@ body {
   &-products {
     grid-column: 2;
     height: 100vh;
+  }
+}
+@media screen and (max-width: 1080px) {
+  .app {
+    grid-template-columns: 270px 1fr;
+  }
+}
+@media screen and (max-width: 640px) {
+  .app {
+    grid-template-columns: 1fr;
+    &-form {
+      grid-row: 1;
+    }
+    &-products {
+      grid-column: 1;
+    }
   }
 }
 </style>

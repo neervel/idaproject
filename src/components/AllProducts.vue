@@ -44,4 +44,14 @@ export default {
 .list-complete-leave-active {
   position: absolute;
 }
+@media screen and (max-width: 1080px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 768px) {
+  .products {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 </style>
